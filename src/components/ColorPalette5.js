@@ -92,24 +92,70 @@ export default function ColorPalette5() {
     setRandomColor();
   }
 
+  // FUNCTION FOR CHECKING IF BG COLOR IS LIGHT OR DARK //
+  const lightOrDark = (color) => {
+    let r, g, b, hsp;
+
+    color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
+
+    r = color[1];
+    g = color[2];
+    b = color[3];
+
+    hsp = Math.sqrt(
+      0.299 * (r * r) +
+      0.587 * (g * g) +
+      0.114 * (b * b)
+    );
+
+    if (hsp > 127.5) {
+      console.log(hsp, 'light');
+      return 'light';
+    } else {
+      console.log(hsp, 'dark');
+      return 'dark';
+    }
+  };
+
+  const setButtonColor = () => {
+
+    // SELECTS EXAMPLE BUTTONS //
+    const primaryBtn = document.querySelector('#primary-btn');
+    const secondaryBtn = document.querySelector('#secondary-btn');
+    // SELECTS PRIMARY AND SECONDARY COLOR DIVS //
+    const primary5 = document.querySelector('#primary-5');
+    const secondary5 = document.querySelector('#secondary-5');
+    // SELECTS BACKGROUND COLOR OF PRIM/SEC COLOR DIVS //
+    const primary5Color = primary5.style.backgroundColor;
+    const secondary5Color = secondary5.style.backgroundColor;
+    // SETS EXAMPLE BUTTONS BG and FONT COLOR EQUAL TO SELECTED PALETTE //
+    if (lightOrDark(primary5Color) === 'light') {
+      primaryBtn.setAttribute('style', `background-color: ${primary5Color}; color: black`);
+    } else {
+      primaryBtn.setAttribute('style', `background-color: ${primary5Color}; color: white`);
+    };
+
+    if (lightOrDark(secondary5Color) === 'light') {
+      secondaryBtn.setAttribute('style', `background-color: ${secondary5Color}; color: black`);
+    } else {
+      secondaryBtn.setAttribute('style', `background-color: ${secondary5Color}; color: white`);
+    }
+  }
 
   return (
     <>
-      {/* <div className='btn-container'>
-        <button onClick={handleColorChange}>New Colors</button>
-      </div> */}
       <div className='btn-and-palette'>
         <div className='new-colors-btn'>
           <span onClick={handleColorChange}>🔄</span>
         </div>
-        <div className='palette'>
+        <div className='palette' onClick={setButtonColor}>
           <div className='primary-palette'>
-            <div className='primary-color big-color' ref={primRef}></div>
+            <div className='primary-color big-color' id='primary-5' ref={primRef}></div>
             <div className='variation-container' ref={primDarkRef}></div>
             <div className='variation-container' ref={primLightRef}></div>
           </div>
           <div className='secondary-palette'>
-            <div className='secondary-color big-color' ref={secRef}></div>
+            <div className='secondary-color big-color' id='secondary-5' ref={secRef}></div>
             <div className='variation-container' ref={secDarkRef}></div>
             <div className='variation-container' ref={secLightRef}></div>
           </div>
