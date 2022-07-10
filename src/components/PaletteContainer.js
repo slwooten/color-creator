@@ -12,8 +12,8 @@ export default function PaletteContainer() {
   return (
     <>
       <div className='btn-container'>
-        <button>Primary Button</button>
-        <button>Secondary Button</button>
+        <button className='example-btn' id='primary-btn'>Primary Button</button>
+        <button className='example-btn' id='secondary-btn'>Secondary Button</button>
       </div>
       <section className='color-section'>
         <div className='palette-container'>

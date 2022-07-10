@@ -1,3 +1,20 @@
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.example-btn {
+  padding: .5rem;
+  margin: 1rem;
+  border-radius: 8%;
+}
+
+.example-btn:hover {
+  cursor: pointer;
+}
+
 .color-section {
   display: flex;
   justify-content: center;
@@ -19,12 +36,33 @@
   flex: 1 0 21%;
 }
 
+.new-colors-btn {
+  padding: .5rem;
+  margin: .5rem;
+  /* border: grey solid 1px; */
+  border-radius: 15%;
+  font-size: 2rem;
+}
+
+.new-colors-btn span:hover {
+  cursor: pointer;
+}
+
 .palette {
   display: flex;
   flex-direction: row;
   border: 1px solid grey;
   border-radius: 10%;
   padding: 1rem;
+  margin: 1px;
+}
+
+.palette:hover {
+  cursor: pointer;
+  border: grey solid 2px;
+  transform: scale(1.01);
+  animation: ease 500ms;
+  margin: 0;
 }
 
 .primary-palette {
