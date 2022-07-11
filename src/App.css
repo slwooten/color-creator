@@ -1,3 +1,131 @@
+
+/* FORMATTING LOGO */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  padding: 1rem;
+  font-family: Roboto Mono;
+  font-size: 2rem;
+}
+
+.red {
+  color: red;
+}
+
+.yellow {
+  color: orange;
+}
+
+.blue {
+  color: blue;
+}
+
+/* /////////////////////////////////// */
+
+/* FORMATTING HEADER */
+.intro {
+  font-family: Roboto Mono;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-text {
+  max-width: 30rem;
+}
+
+/* /////////////////////////////////// */
+
+/* FORMATTING SAMPLES CONTAINER */
+.samples {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.samples .form-card {
+  flex: 1 0 25rem;
+}
+
+/* /////////////////////////////////// */
+
+/* FORMATTING TEXT CARD SAMPLE */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 10%;
+  padding: 1.5rem;
+  margin: 1rem;
+  max-width: 25rem;
+  font-family: Roboto Mono;
+}
+
+.heading, .subheading, .sample-text {
+  font-size: .8rem;
+}
+
+.subheading {
+  font-style: italic;
+}
+
+.sample-text {
+  max-width: 25rem;
+}
+
+/* /////////////////////////////////// */
+
+/* FORMATTING FORM CARD SAMPLE */
+.form-card {
+  align-items: center;
+  text-align: center;
+}
+
+.have-account {
+  margin-bottom: .5rem;
+}
+
+.question {
+  color: grey;
+}
+
+.sign-in {
+  font-size: .8rem;
+}
+
+.sign-in:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.form-card p {
+  margin: 0;
+}
+
+.input {
+  margin: .5rem;
+}
+
+.signup-btn {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  padding: .4rem;
+}
+
+.signup-btn:hover {
+  cursor: pointer;
+}
+
+/* /////////////////////////////////// */
+
+/* FORMATTING BUTTONS */
 .btn-container {
   display: flex;
   flex-direction: row;
@@ -16,6 +144,9 @@
   box-shadow: 5px 5px 10px grey;
 }
 
+/* /////////////////////////////////// */
+
+/* FORMATTING PALETTES */
 .color-section {
   display: flex;
   justify-content: center;
@@ -40,7 +171,6 @@
 .new-colors-btn {
   padding: .5rem;
   margin: .5rem;
-  /* border: grey solid 1px; */
   border-radius: 15%;
   font-size: 2rem;
 }

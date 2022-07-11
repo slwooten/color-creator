@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
-export default function ColorPalette2() {
+export default function ColorPalette7() {
 
   // INITIAL RANDOM RGB VALUES FOR PRIMARY COLORS //
   let randomRed = Math.floor(Math.random() * (255 - 0 + 1) + 0);
@@ -123,42 +123,43 @@ export default function ColorPalette2() {
     const primaryBtn = document.querySelector('#primary-btn');
     const secondaryBtn = document.querySelector('#secondary-btn');
     // SELECTS PRIMARY AND SECONDARY COLOR DIVS //
-    const primary2 = document.querySelector('#primary-2');
-    const secondary2 = document.querySelector('#secondary-2');
+    const primary7 = document.querySelector('#primary-7');
+    const secondary7 = document.querySelector('#secondary-7');
     // SELECTS BACKGROUND COLOR OF PRIM/SEC COLOR DIVS //
-    const primary2Color = primary2.style.backgroundColor;
-    const secondary2Color = secondary2.style.backgroundColor;
+    const primary7Color = primary7.style.backgroundColor;
+    const secondary7Color = secondary7.style.backgroundColor;
     // SETS EXAMPLE BUTTONS BG and FONT COLOR EQUAL TO SELECTED PALETTE //
-    if (lightOrDark(primary2Color) === 'light') {
-      primaryBtn.setAttribute('style', `background-color: ${primary2Color}; color: black`);
+    if (lightOrDark(primary7Color) === 'light') {
+      primaryBtn.setAttribute('style', `background-color: ${primary7Color}; color: black`);
     } else {
-      primaryBtn.setAttribute('style', `background-color: ${primary2Color}; color: white`);
+      primaryBtn.setAttribute('style', `background-color: ${primary7Color}; color: white`);
     };
 
-    if (lightOrDark(secondary2Color) === 'light') {
-      secondaryBtn.setAttribute('style', `background-color: ${secondary2Color}; color: black`);
+    if (lightOrDark(secondary7Color) === 'light') {
+      secondaryBtn.setAttribute('style', `background-color: ${secondary7Color}; color: black`);
     } else {
-      secondaryBtn.setAttribute('style', `background-color: ${secondary2Color}; color: white`);
+      secondaryBtn.setAttribute('style', `background-color: ${secondary7Color}; color: white`);
     }
   }
 
+  useEffect(() => {
+    setRandomColor();
+  }, []);
+
   return (
     <>
-      {/* <div className='btn-container'>
-        <button onClick={handleColorChange}>New Colors</button>
-      </div> */}
       <div className='btn-and-palette'>
         <div className='new-colors-btn'>
           <span onClick={handleColorChange}>🔄</span>
         </div>
         <div className='palette' onClick={setButtonColor}>
           <div className='primary-palette'>
-            <div className='primary-color big-color' id='primary-2' ref={primRef}></div>
+            <div className='primary-color big-color' id='primary-7' ref={primRef}></div>
             <div className='variation-container' ref={primDarkRef}></div>
             <div className='variation-container' ref={primLightRef}></div>
           </div>
           <div className='secondary-palette'>
-            <div className='secondary-color big-color' id='secondary-2' ref={secRef}></div>
+            <div className='secondary-color big-color' id='secondary-7' ref={secRef}></div>
             <div className='variation-container' ref={secDarkRef}></div>
             <div className='variation-container' ref={secLightRef}></div>
           </div>

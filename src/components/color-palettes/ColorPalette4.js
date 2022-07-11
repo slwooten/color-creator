@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 export default function ColorPalette4() {
 
@@ -141,6 +141,10 @@ export default function ColorPalette4() {
       secondaryBtn.setAttribute('style', `background-color: ${secondary4Color}; color: white`);
     }
   }
+
+  useEffect(() => {
+    setRandomColor();
+  }, []);
 
   return (
     <>

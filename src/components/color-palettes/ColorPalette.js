@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
-export default function ColorPalette3() {
+export default function ColorPalette() {
 
   // INITIAL RANDOM RGB VALUES FOR PRIMARY COLORS //
   let randomRed = Math.floor(Math.random() * (255 - 0 + 1) + 0);
@@ -123,24 +123,28 @@ export default function ColorPalette3() {
     const primaryBtn = document.querySelector('#primary-btn');
     const secondaryBtn = document.querySelector('#secondary-btn');
     // SELECTS PRIMARY AND SECONDARY COLOR DIVS //
-    const primary3 = document.querySelector('#primary-3');
-    const secondary3 = document.querySelector('#secondary-3');
+    const primary1 = document.querySelector('#primary-1');
+    const secondary1 = document.querySelector('#secondary-1');
     // SELECTS BACKGROUND COLOR OF PRIM/SEC COLOR DIVS //
-    const primary3Color = primary3.style.backgroundColor;
-    const secondary3Color = secondary3.style.backgroundColor;
+    const primary1Color = primary1.style.backgroundColor;
+    const secondary1Color = secondary1.style.backgroundColor;
     // SETS EXAMPLE BUTTONS BG and FONT COLOR EQUAL TO SELECTED PALETTE //
-    if (lightOrDark(primary3Color) === 'light') {
-      primaryBtn.setAttribute('style', `background-color: ${primary3Color}; color: black`);
+    if (lightOrDark(primary1Color) === 'light') {
+      primaryBtn.setAttribute('style', `background-color: ${primary1Color}; color: black`);
     } else {
-      primaryBtn.setAttribute('style', `background-color: ${primary3Color}; color: white`);
+      primaryBtn.setAttribute('style', `background-color: ${primary1Color}; color: white`);
     };
 
-    if (lightOrDark(secondary3Color) === 'light') {
-      secondaryBtn.setAttribute('style', `background-color: ${secondary3Color}; color: black`);
+    if (lightOrDark(secondary1Color) === 'light') {
+      secondaryBtn.setAttribute('style', `background-color: ${secondary1Color}; color: black`);
     } else {
-      secondaryBtn.setAttribute('style', `background-color: ${secondary3Color}; color: white`);
+      secondaryBtn.setAttribute('style', `background-color: ${secondary1Color}; color: white`);
     }
   }
+
+  useEffect(() => {
+    setRandomColor();
+  }, []);
 
   return (
     <>
@@ -150,12 +154,12 @@ export default function ColorPalette3() {
         </div>
         <div className='palette' onClick={setButtonColor}>
           <div className='primary-palette'>
-            <div className='primary-color big-color' id='primary-3' ref={primRef}></div>
+            <div className='primary-color big-color' id='primary-1' ref={primRef}></div>
             <div className='variation-container' ref={primDarkRef}></div>
             <div className='variation-container' ref={primLightRef}></div>
           </div>
           <div className='secondary-palette'>
-            <div className='secondary-color big-color' id='secondary-3' ref={secRef}></div>
+            <div className='secondary-color big-color' id='secondary-1' ref={secRef}></div>
             <div className='variation-container' ref={secDarkRef}></div>
             <div className='variation-container' ref={secLightRef}></div>
           </div>
