@@ -19,6 +19,7 @@ export default function Header() {
             <span className="yellow">t</span>
             <span className="blue">o</span>
             <span className="red">r</span>
+            <span>™️</span>
           </h1>
         </div>
         <div className="intro">

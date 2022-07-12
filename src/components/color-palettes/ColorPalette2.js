@@ -142,6 +142,42 @@ export default function ColorPalette2() {
     }
   }
 
+  const setCardColors = () => {
+    console.log('card colors function');
+    // SELECTS TEXT CARD ELEMENTS //
+    const textCardContainer = document.querySelector('#text-card-container');
+    const textCardHeading = document.querySelector('#text-card-heading');
+    const textCardSubheading = document.querySelector('#text-card-subheading');
+    // SELECTS FORM CARD ELEMENTS //
+    const formCardContainer = document.querySelector('#form-card-container');
+    const signInText = document.querySelector('#sign-in-text');
+    const email = document.querySelector('#email');
+    const password = document.querySelector('#password');
+    const confirmPassword = document.querySelector('#confirm-password');
+    const signUpText = document.querySelector('#signup-text');
+    // SELECTS PRIMARY AND SECONDARY COLOR DIVS //
+    const primary2 = document.querySelector('#primary-2');
+    const secondary2 = document.querySelector('#secondary-2');
+    // SELECT BG COLOR OF PRIM/SEC COLOR DIVS //
+    const primary1Color = primary2.style.backgroundColor;
+    const secondary1Color = secondary2.style.backgroundColor;
+    // SETS COLOR OF TEXT CARD ELEMENTS //
+    textCardContainer.setAttribute('style', `border: ${primary1Color} 2px solid`);
+    textCardHeading.setAttribute('style', `color: ${primary1Color}`);
+    textCardSubheading.setAttribute('style', `color: ${secondary1Color}`);
+    // SETS COLOR OF FORM CARD ELEMENTS //
+    formCardContainer.setAttribute('style', `border: ${primary1Color} 2px solid`);
+    signInText.setAttribute('style', `color: ${secondary1Color}`);
+    email.setAttribute('style', `color: ${primary1Color}`);
+    password.setAttribute('style', `color: ${primary1Color}`);
+    confirmPassword.setAttribute('style', `color: ${primary1Color}`);
+    if (lightOrDark(secondary1Color) === 'light') {
+      signUpText.setAttribute('style', `background-color: ${secondary1Color}; color: black`);
+    } else {
+      signUpText.setAttribute('style', `background-color: ${secondary1Color}; color: white`);
+    }
+  }
+
   useEffect(() => {
     setRandomColor();
   }, []);
@@ -155,7 +191,7 @@ export default function ColorPalette2() {
         <div className='new-colors-btn'>
           <span onClick={handleColorChange}>🔄</span>
         </div>
-        <div className='palette' onClick={setButtonColor}>
+        <div className='palette' onClick={() => { setButtonColor(); setCardColors();}} >
           <div className='primary-palette'>
             <div className='primary-color big-color' id='primary-2' ref={primRef}></div>
             <div className='variation-container' ref={primDarkRef}></div>

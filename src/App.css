@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'Standard';
+  src: local('RobotoMono-VariableFont_wght'), url('./fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
+}
 
 /* FORMATTING LOGO */
 .logo-container {
@@ -9,7 +13,7 @@
 
 .logo {
   padding: 1rem;
-  font-family: Roboto Mono;
+  font-family: 'Standard';
   font-size: 2rem;
 }
 
@@ -29,15 +33,17 @@
 
 /* FORMATTING HEADER */
 .intro {
-  font-family: Roboto Mono;
+  font-family: 'Standard';
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: .5rem;
 }
 
 .intro-text {
   max-width: 30rem;
+  padding: .5rem;
 }
 
 /* /////////////////////////////////// */
@@ -46,12 +52,13 @@
 .samples {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
 .samples .form-card {
-  flex: 1 0 25rem;
+  flex: 1 1 25rem;
 }
 
 /* /////////////////////////////////// */
@@ -65,7 +72,7 @@
   padding: 1.5rem;
   margin: 1rem;
   max-width: 25rem;
-  font-family: Roboto Mono;
+  font-family: 'Standard';
 }
 
 .heading, .subheading, .sample-text {
