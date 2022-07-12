@@ -1,6 +1,6 @@
 import React from "react";
-import Form from "./components/cards/Form";
-import TextCard from "./components/cards/TextCard";
+import Form from "./cards/Form";
+import TextCard from "./cards/TextCard";
 
 export default function Samples() {
   return (
