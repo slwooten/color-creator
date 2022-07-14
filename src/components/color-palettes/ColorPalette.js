@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-export default function ColorPalette() {
+const ColorPalette = () => {
 
   // INITIAL RANDOM RGB VALUES FOR PRIMARY COLORS //
   let randomRed = Math.floor(Math.random() * (255 - 0 + 1) + 0);
@@ -57,12 +57,10 @@ export default function ColorPalette() {
   let secLight = `rgb(${lightRedSec}, ${lightGreenSec}, ${lightBlueSec})`;
 
   const setRandomColor = () => {
-    console.log('btn working');
     // GRAB RANDOOM RGB VALUES FOR PRIMARY COLORS //
     randomRed = Math.floor(Math.random() * (255 - 0 + 1) + 0);
     randomGreen = Math.floor(Math.random() * (255 - 0 + 1) + 0);
     randomBlue = Math.floor(Math.random() * (255 - 0 + 1) + 0);
-    console.log(randomRed, randomGreen, randomBlue);
 
     // GRAB RANDOM RGB VALUES FOR SECONDARY COLORS //
     randomRedSec = Math.floor(Math.random() * (255 - 0 + 1) + 0);
@@ -109,10 +107,8 @@ export default function ColorPalette() {
     );
 
     if (hsp > 127.5) {
-      console.log(hsp, 'light');
       return 'light';
     } else {
-      console.log(hsp, 'dark');
       return 'dark';
     }
   };
@@ -122,12 +118,9 @@ export default function ColorPalette() {
     // SELECTS EXAMPLE BUTTONS //
     const primaryBtn = document.querySelector('#primary-btn');
     const secondaryBtn = document.querySelector('#secondary-btn');
-    // SELECTS PRIMARY AND SECONDARY COLOR DIVS //
-    const primary1 = document.querySelector('#primary-1');
-    const secondary1 = document.querySelector('#secondary-1');
     // SELECTS BACKGROUND COLOR OF PRIM/SEC COLOR DIVS //
-    const primary1Color = primary1.style.backgroundColor;
-    const secondary1Color = secondary1.style.backgroundColor;
+    const primary1Color = primRef.current.style.backgroundColor;
+    const secondary1Color = secRef.current.style.backgroundColor;
     // SETS EXAMPLE BUTTONS BG and FONT COLOR EQUAL TO SELECTED PALETTE //
     if (lightOrDark(primary1Color) === 'light') {
       primaryBtn.setAttribute('style', `background-color: ${primary1Color}; color: black`);
@@ -143,7 +136,6 @@ export default function ColorPalette() {
   }
 
   const setCardColors = () => {
-    console.log('card colors function');
     // SELECTS TEXT CARD ELEMENTS //
     const textCardContainer = document.querySelector('#text-card-container');
     const textCardHeading = document.querySelector('#text-card-heading');
@@ -155,12 +147,9 @@ export default function ColorPalette() {
     const password = document.querySelector('#password');
     const confirmPassword = document.querySelector('#confirm-password');
     const signUpText = document.querySelector('#signup-text');
-    // SELECTS PRIMARY AND SECONDARY COLOR DIVS //
-    const primary1 = document.querySelector('#primary-1');
-    const secondary1 = document.querySelector('#secondary-1');
     // SELECT BG COLOR OF PRIM/SEC COLOR DIVS //
-    const primary1Color = primary1.style.backgroundColor;
-    const secondary1Color = secondary1.style.backgroundColor;
+    const primary1Color = primRef.current.style.backgroundColor;
+    const secondary1Color = secRef.current.style.backgroundColor;
     // SETS COLOR OF TEXT CARD ELEMENTS //
     textCardContainer.setAttribute('style', `border: ${primary1Color} 2px solid`);
     textCardHeading.setAttribute('style', `color: ${primary1Color}`);
@@ -190,12 +179,12 @@ export default function ColorPalette() {
         </div>
         <div className='palette' onClick={() => { setButtonColor(); setCardColors();}} >
           <div className='primary-palette'>
-            <div className='primary-color big-color' id='primary-1' ref={primRef}></div>
+            <div className='primary-color big-color' ref={primRef}></div>
             <div className='variation-container' ref={primDarkRef}></div>
             <div className='variation-container' ref={primLightRef}></div>
           </div>
           <div className='secondary-palette'>
-            <div className='secondary-color big-color' id='secondary-1' ref={secRef}></div>
+            <div className='secondary-color big-color' ref={secRef}></div>
             <div className='variation-container' ref={secDarkRef}></div>
             <div className='variation-container' ref={secLightRef}></div>
           </div>
@@ -204,3 +193,5 @@ export default function ColorPalette() {
     </>
   );
 }
+
+export default ColorPalette;
