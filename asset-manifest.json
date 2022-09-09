@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/color-creator/static/css/main.7de9e34e.css",
+    "main.js": "/color-creator/static/js/main.147cfd5c.js",
+    "static/media/RobotoMono-VariableFont_wght.ttf": "/color-creator/static/media/RobotoMono-VariableFont_wght.e1d699e6544d0dbf6ec7.ttf",
+    "index.html": "/color-creator/index.html",
+    "main.7de9e34e.css.map": "/color-creator/static/css/main.7de9e34e.css.map",
+    "main.147cfd5c.js.map": "/color-creator/static/js/main.147cfd5c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7de9e34e.css",
+    "static/js/main.147cfd5c.js"
+  ]
+}
