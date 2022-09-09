@@ -10,3 +10,6 @@ Color Creator is a React application that generates color palettes and displays 
 - useState Hook
 - useEffect Hook
 - useRef Hook
+
+## Link to live site
+[Live Site >](https://slwooten.github.io/color-creator/)
